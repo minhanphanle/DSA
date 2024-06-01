@@ -13,6 +13,8 @@ class Node:
         self.id = _id
         self.weight = _weight
 
+    # Define the less-than method to compare nodes based on weight
+    # used for priority queue
     def __lt__(self, other):
         return self.weight < other.weight
 
@@ -38,6 +40,7 @@ def Dijkstra(index):
 N = int(input())
 for _ in range(N):
     A, B, W = map(int, input().split())
+    # undirected graph
     graph[A].append(Node(B, W))
     graph[B].append(Node(A, W))
 
